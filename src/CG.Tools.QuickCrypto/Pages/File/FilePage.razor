@@ -1,0 +1,74 @@
+﻿@inherits MvvmPageBase<FilePageViewModel>
+@page "/file"
+
+<MudText Typo="Typo.h5">AES File Crypto</MudText>
+<MudText Typo="Typo.caption">Encrypt or decrypt a file using AES</MudText>
+
+@if (!string.IsNullOrEmpty(ViewModel.Error))
+{
+    <MudAlert Class="mt-5" Severity="Severity.Error">@ViewModel.Error</MudAlert>
+}
+<div class="mt-5">
+    <MudTable Items="@(ViewModel.BrowserFile is null ? new IBrowserFile[0] : new[] { ViewModel.BrowserFile })" Class="mt-4">
+        <ToolBarContent>
+            <MudFileUpload T="IBrowserFile" FilesChanged="@(x => ViewModel.BrowserFile = x)">
+                <ButtonTemplate>
+                    <MudButton HtmlTag="label"
+                               Variant="Variant.Filled"
+                               Color="Color.Primary"
+                               Size="Size.Small"
+                               StartIcon="@Icons.Material.Filled.FileOpen"
+                               for="@context">
+                        Select File
+                    </MudButton>
+                </ButtonTemplate>
+            </MudFileUpload>
+            @if (ViewModel.BrowserFile is not null)
+            {
+                <MudButton Class="mt-1 ml-2"
+                           Variant="Variant.Filled"
+                           Size="Size.Small"
+                           StartIcon="@Icons.Material.Filled.Clear"
+                           Color="Color.Secondary"
+                           OnClick="@(() => ViewModel.BrowserFile = null)">
+                    Clear
+                </MudButton>
+            }
+        </ToolBarContent>
+        <HeaderContent>
+            <MudTh>Name</MudTh>
+            <MudTh>Size</MudTh>
+            <MudTh>Content Type</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="Name">@context.Name</MudTd>
+            <MudTd DataLabel="Size">@context.Size</MudTd>
+            <MudTd DataLabel="Content Type">@context.ContentType</MudTd>
+        </RowTemplate>
+        <NoRecordsContent>
+            No file uploaded.
+        </NoRecordsContent>
+    </MudTable>
+</div>
+
+<span>
+    @if (ViewModel.BrowserFile is not null)
+    {
+        <MudButton Variant="Variant.Filled"
+                   Class="mt-2 ml-2"
+                   Size="Size.Small"
+                   StartIcon="@Icons.Material.Filled.EnhancedEncryption"
+                   Color="Color.Tertiary"
+                   OnClick="@ViewModel.EncryptFile">
+            Encrypt File
+        </MudButton>
+        <MudButton Variant="Variant.Filled"
+                   Class="mt-2 ml-2"
+                   Size="Size.Small"
+                   StartIcon="@Icons.Material.Filled.NoEncryption"
+                   Color="Color.Tertiary"
+                   OnClick="@ViewModel.DecryptFile">
+            Decrypt File
+        </MudButton>
+    }
+</span>

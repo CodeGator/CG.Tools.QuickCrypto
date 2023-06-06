@@ -1,0 +1,23 @@
+﻿@inherits MvvmPageBase<SettingsPageViewModel>
+@page "/settings"
+
+<MudText Class="mb-5" Typo="Typo.h5">Settings</MudText>
+
+<MudCard>
+    <MudCardHeader>
+        <MudText Typo="Typo.body2">AES Credentials</MudText>
+    </MudCardHeader>
+    <MudCardContent>
+        <MudButton OnClick="ViewModel.OnGenerateRandomCredentials"
+                   Class="mb-2"
+                   Size="Size.Small" 
+                   Color="Color.Secondary" 
+                   Variant="Variant.Filled"
+                   StartIcon="@Icons.Material.Filled.GeneratingTokens">Generate random credentials</MudButton>
+        <MudTextField T="string" TextChanged="OnPasswordChanged" Text="@ViewModel.Password" Label="Password" InputType="@_passwordInputType" Adornment="Adornment.End" AdornmentIcon="@_passwordInputIcon" OnAdornmentClick="TogglePasswordVisibility" AdornmentAriaLabel="Show Password" />
+        <MudTextField T="string" TextChanged="OnSaltChanged" Text="@ViewModel.Salt" Label="SALT" InputType="@_saltInputType" Adornment="Adornment.End" AdornmentIcon="@_saltInputIcon" OnAdornmentClick="ToggleSaltVisibility" AdornmentAriaLabel="Show Salt" />
+        <MudSlider T="int" Class="mt-2" ValueChanged="OnIterationsChanged" Value="@ViewModel.Iterations" Min="10000" Max="100000" Step="1000" ValueLabel><MudText Typo="Typo.caption">Iterations [@ViewModel.Iterations]</MudText></MudSlider>
+    </MudCardContent>
+</MudCard>
+
+

@@ -1,0 +1,51 @@
+﻿@inherits MvvmPageBase<TextPageViewModel>
+@page "/text"
+
+<MudText Typo="Typo.h5">AES Text Crypto</MudText>
+<MudText Typo="Typo.caption">Encrypt or decrypt text using AES</MudText>
+
+@if (!string.IsNullOrEmpty(ViewModel.Error))
+{
+    <MudAlert Class="mt-5" Severity="Severity.Error">@ViewModel.Error</MudAlert>
+}
+
+<div class="mt-5">
+    <MudGrid>
+        <MudItem xs="12">
+            <MudTextField @bind-Text="@ViewModel.DecryptedText"
+                          T="string"
+                          Label="Decrypted Text"
+                          Placeholder="Enter decrypted text here"
+                          Adornment="Adornment.End"
+                          AdornmentIcon="@Icons.Material.Filled.CopyAll"
+                          OnAdornmentClick="@ViewModel.CopyDecryptedTextToClipboard"
+                          Lines="5"></MudTextField>
+        </MudItem>
+        <MudItem xs="6">
+            <MudButton OnClick="@ViewModel.EncryptText"
+                          FullWidth
+                        Variant="Variant.Filled"
+                        Size="Size.Small"
+                        Color="Color.Primary"
+                        StartIcon="@Icons.Material.Filled.EnhancedEncryption">Encrypt ↓</MudButton>
+         </MudItem>
+         <MudItem xs="6">
+             <MudButton OnClick="@ViewModel.DecryptText"
+                          FullWidth
+                        Variant="Variant.Filled"
+                        Size="Size.Small"
+                        Color="Color.Secondary"
+                        StartIcon="@Icons.Material.Filled.NoEncryption">Decrypt ↑</MudButton>
+         </MudItem>
+         <MudItem xs="12">
+             <MudTextField @bind-Text="@ViewModel.EncryptedText"
+                           T="string"
+                           Label="Encrypted Text"
+                           Placeholder="Enter encrypted text here"
+                           Adornment="Adornment.End"
+                           AdornmentIcon="@Icons.Material.Filled.CopyAll"
+                           OnAdornmentClick="@ViewModel.CopyEncryptedTextToClipboard"
+                           Lines="5"></MudTextField>
+         </MudItem>
+     </MudGrid>
+</div>
