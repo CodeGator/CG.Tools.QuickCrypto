@@ -1,8 +1,8 @@
 # CG.Tools.QuickCrypto: 
 ---
-[![Build Status](https://dev.azure.com/codegator/CG.Tools.QuickCrypto/_apis/build/status/CodeGator.CG.Tools.QuickCrypto?branchName=main)](https://dev.azure.com/codegator/CG.Tools.QuickCrypto/_build/latest?definitionId=83&branchName=main)
+[![Build Status](https://dev.azure.com/codegator/CG.Tools.QuickCrypto/_apis/build/status%2FCodeGator.CG.Tools.QuickCrypto?branchName=main)](https://dev.azure.com/codegator/CG.Tools.QuickCrypto/_build/latest?definitionId=107&branchName=main)
 [![Github docs](https://img.shields.io/static/v1?label=Documentation&message=online&color=blue)](https://codegator.github.io/CG.Tools.QuickCrypto/index.html)
-![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/codegator/CG.Tools.QuickCrypto/83)
+![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/codegator/CG.Tools.QuickCrypto/107)
 
 #### What does it do?
 A tool for quick encryption / decryption, developed by CodeGator.
