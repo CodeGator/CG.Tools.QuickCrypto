@@ -1,10 +1,9 @@
 ﻿@page "/"
 
-<MudText Typo="Typo.h5">@Assembly.GetEntryAssembly().ReadTitle() @Assembly.GetEntryAssembly().ReadFileVersion()</MudText>
-<MudText Typo="Typo.subtitle1">A tool for quickly encrypting / decrypting data and files</MudText>
+<MudText Typo="Typo.h5">@Assembly.GetEntryAssembly().ReadTitle()</MudText>
+<MudText Class="mx-2" Typo="Typo.caption">@Assembly.GetEntryAssembly().ReadFileVersion()</MudText>
 
-<br />
-<br />
+<MudText Class="my-5" Typo="Typo.subtitle1">A tool for quickly encrypting / decrypting data and files</MudText>
 
-<MudText Typo="Typo.caption">@Assembly.GetEntryAssembly().ReadCopyright()</MudText>
+<MudText Class="my-8" Typo="Typo.caption">@Assembly.GetEntryAssembly().ReadCopyright()</MudText>
 
