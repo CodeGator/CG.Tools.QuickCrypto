@@ -94,7 +94,7 @@ public static partial class RandomNumberGeneratorExtensions
     /// operation.</param>
     /// <param name="min">The lower value for the range.</param>
     /// <param name="max">The upper value for the range.</param>
-    /// <returns>A randon integer who's value has been constrained
+    /// <returns>A random integer who's value has been constrained
     /// to be within the range specified by the <paramref name="min"/> and
     /// <paramref name="max"/> parameters.</returns>
     /// <example>

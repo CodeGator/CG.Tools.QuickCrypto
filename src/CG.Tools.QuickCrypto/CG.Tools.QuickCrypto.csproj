@@ -55,6 +55,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Remove="Resources\Images\10709.jpg" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="CommunityToolkit.Maui" Version="5.2.0" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0-preview.2.23128.3" />
